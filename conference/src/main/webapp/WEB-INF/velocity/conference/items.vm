@@ -1,0 +1,36 @@
+#if ($conferenceList.size() > 0)
+
+##<div class="wrapper">
+##    <div class="tablebody">
+##        <div class="tabletitle">Which I created</div>
+##        <table class="createdtable">
+##            <thead>
+##
+
+        <div class="tablebody">
+            <div class="tabletitle">Conferences</div>
+                <table class="createdtable">
+                    <thead>
+                    <tr>
+                        <th>Conference name</th>
+                        <th>Starts</th>
+                        <th>Ends</th>
+                        <th>City</th>
+                        <th>Street</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach($conference in $conferenceList)
+                        <tr data-id="$conference.getId()">
+                            <td>$conference.getName()</td>
+                            <td>$conference.getStartDate($dateFormat)</td>
+                            <td>$conference.getEndDate($dateFormat)</td>
+                            <td>$conference.getCity()</td>
+                            <td>$conference.getStreet()</td>
+                            <td><a href="/conference/participate?conference_id=$conference.getId()">Participate</a></td>
+                        </tr>
+                        #end
+                    </tbody>
+                </table>
+        </div>
+#end

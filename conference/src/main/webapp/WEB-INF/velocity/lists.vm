@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login form</title>
+    #parse("blocks/head.vm")
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    #parse("blocks/nav.vm")
+    <div class="wrapper">
+        <div class="tablebody">
+            <div class="tabletitle">Which I created</div>
+            <table class="createdtable">
+                    <thead>
+                    <tr>
+                        <th>Conference name</th>
+                        <th>Starts</th>
+                        <th>Ends</th>
+                        <th>City</th>
+                        <th>Street</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach($conference in $createdConf)
+                        <tr data-id="$conference.getId()">
+                            <td>$conference.getName()</td>
+                            <td>$conference.getStartDate($dateFormat)</td>
+                            <td>$conference.getEndDate($dateFormat)</td>
+                            <td>$conference.getCity()</td>
+                            <td>$conference.getStreet()</td>
+                            <td><a href="/conference/update?id=$conference.getId()" >Edit</a></td>
+                            <td><a href="/conference/delete?conference_id=$conference.getId()" >Delete</a></td>
+                        </tr>
+                        #end
+##                    <tr>
+##                        <td>Informacines technologijos</td>
+##                        <td>2013-02-13</td>
+##                        <td>2013-02-13</td>
+##                        <td><a href="">Edit</a></td>
+##                        <td><a href="">Delete</a></td>
+##                    </tr>
+                </tbody>
+            </table>
+            <!-- -->
+        </div>
+        <div class="tablebody">
+            <div class="tabletitle">Which I participated</div>
+            <table class="participatetable">
+                <thead>
+                <tr>
+                    <th>Conference name</th>
+                    <th>Starts</th>
+                    <th>Ends</th>
+                    <th>City</th>
+                    <th>Street</th>
+                </tr>
+                </thead>
+                <tbody>
+                    #foreach($conference in $participantsConf)
+                    <tr data-id="$conference.getId()">
+                        <td>$conference.getName()</td>
+                        <td>$conference.getStartDate($dateFormat)</td>
+                        <td>$conference.getEndDate($dateFormat)</td>
+                        <td>$conference.getCity()</td>
+                        <td>$conference.getStreet()</td>
+                        <td><a href="/conference/cancel?conference_id=$conference.getId()">Cancel</a></td>
+                    </tr>
+                    #end
+                </tbody>
+            </table>
+        </div>
+    <div>
+</body>

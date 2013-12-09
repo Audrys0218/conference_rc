@@ -1,0 +1,114 @@
+##<form method="post" action="/conference/save">
+##    <input type="hidden" value="${conference.getId()}" name="id" />
+##    <div class="formGroup">
+##        <label for="formName">name</label>
+##        <input type="text" name="name" id="formName" value="$!{conference.getName()}" />
+##    </div>
+##    <div class="formGroup">
+##        <label for="formStart">Start date</label>
+##        <input type="text" name="startDate" value="$!{conference.getStartDate($dateFormat)}" id="formStart" class="datePicker" />
+##    </div>
+##    <div class="formGroup">
+##        <label for="formEnd">End date</label>
+##        <input type="text" name="endDate" value="$!{conference.getEndDate($dateFormat)}" id="formEnd" class="datePicker" />
+##    </div>
+##</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conference form</title>
+    #parse("blocks/head.vm")
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    #parse("blocks/nav.vm")
+<div class="wrapper">
+    <form class = "form2" action="/conference/save1" method="POST">
+
+        <div class="formtitle">Create conference</div>
+##        <input type="hidden" value="$!{conference.getId()}" name="id" />
+             #springFormHiddenInput("conMod.id", "")
+        <div class="input">
+            <div class="inputtext">Title:</div>
+            <div class="inputcontent">
+##                <input type="text" name="title"/>
+             #springFormInput("conMod.title", "")
+             #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+
+        <div class="input">
+            <div class="inputtext">Starts:</div>
+            <div class="inputcontent">
+##                <input type="text" class="datePicker" name="starts"/>
+               #springFormInput("conMod.starts", "class=datePicker")
+            </div>
+        </div>
+
+        <div class="input">
+            <div class="inputtext">Ends:</div>
+            <div class="inputcontent">
+##                <input type="text" class="datePicker" name="ends"/>
+                #springFormInput("conMod.ends", "class=datePicker")
+            </div>
+        </div>
+
+        <div class="input">
+            <div class="inputtext">Category </div>
+            <div class="inputcontent">
+                #springFormSingleSelect("conMod.category_id", $catTitles, "class=select")
+##                <select class="select" name="category_id">
+##                    #if($categories.size() > 0))
+##                        #foreach($category in $categories)
+##                            <option value="$category.getId()">$category.getTitle()</option>
+##                        #end
+##                    #end
+##                </select>
+
+            </div>
+        </div>
+        <div class="input">
+            <div class="inputtext">City/Town</div>
+            <div class="inputcontent">
+##                <input type="text" name="city"/>
+                #springFormInput("conMod.city", "")
+                #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+
+        <div class="input">
+            <div class="inputtext">Street</div>
+            <div class="inputcontent">
+##                <input type="text" name="street"/>
+                #springFormInput("conMod.street", "")
+                #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+        <div class="input">
+            <div class="inputtext">Description</div>
+            <div class="textareaWrapper">
+##                <textarea class="textarea" name="description"></textarea>
+                #springFormTextarea("conMod.description", "class=textarea")
+            </div>
+            <div class="clearfix" class></div>
+        </div>
+
+        <div class="buttons">
+
+            <input class="orangebutton" type="submit" value="Send" />
+
+        </div>
+    </form>
+    <div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script>
+            (function( jQuery, window, undefined ) {
+                jQuery( ".datePicker" ).datepicker({dateFormat:"yy-mm-dd"});
+            })( jQuery, window, undefined);
+        </script>
+##        <script src="/resources/js/list.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login form</title>
+        #parse("blocks/head.vm")
+        <link rel="stylesheet" href="/resources/css/style.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+
+    </style>
+    <body>
+    <div id="wrapper_form1">
+        <div class="formFieldError">Blogas prisijungimo vardas arba slaptažodis</div> </br>
+        <a href="/login">Bandyti dar karta</a>
+    </div>
+    <div class=”clearfix”>
+    </div>
+    </body>
+
+</html>
+

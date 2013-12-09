@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conference form</title>
+    #parse("blocks/head.vm")
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="wrapper">
+    <form class = "form2" action="/registration" method="POST">
+
+        <div class="formtitle">Create conference</div>
+
+        <div class="input">
+            <div class="inputtext">Name:</div>
+            <div class="inputcontent">
+##                <input type="text" name="name"/>
+                #springFormInput("regModel.name", "")
+                #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+
+        <div class="input">
+            <div class="inputtext">Surname:</div>
+            <div class="inputcontent">
+##                <input type="text" name="surname"/>
+                    #springFormInput("regModel.surname", "")
+                    #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+        <div class="input">
+            <div class="inputtext">User name:</div>
+            <div class="inputcontent">
+                    #springFormInput("regModel.username", "")
+                    #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+
+        <div class="input">
+            <div class="inputtext">Password:</div>
+            <div class="inputcontent">
+                    #springFormPasswordInput("regModel.password", "")
+                    #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+        <div class="input">
+            <div class="inputtext">Repeat password:</div>
+            <div class="inputcontent">
+                    #springFormPasswordInput("regModel.retypedPassword", "")
+                    #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+        <div class="input">
+            <div class="inputtext">Email:</div>
+            <div class="inputcontent">
+                    #springFormInput("regModel.email", "")
+                    #springShowErrors("", "formFieldError")
+            </div>
+        </div>
+        <div class="input">
+            <div class="inputtext">Repeat Email:</div>
+            <div class="inputcontent">
+                    #springFormInput("regModel.retypedEmail", "")
+                    #springShowErrors("", "formFieldError")
+            </div>
+
+        </div>
+        <div class="buttons">
+
+            <input class="orangebutton" type="submit" value="Send" />
+
+        </div>
+    </form>
+    <div>
+</body>
+</html>

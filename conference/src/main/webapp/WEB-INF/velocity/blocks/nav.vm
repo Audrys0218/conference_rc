@@ -1,0 +1,8 @@
+
+<ul id ="nav">
+    <li><a href="/conference/list">Conferences</a></li>
+    <li><a href="/conference/lists">My conferences</a></li>
+    <li><a href="/conference/create">Create conference</a></li>
+    <li><a href="/logout">Log out</a></li>
+</ul>
+<div class="clearfix"></div>

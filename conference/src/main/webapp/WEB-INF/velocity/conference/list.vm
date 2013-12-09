@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conference list</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css" type="text/css">
+        #parse("blocks/head.vm")
+    </head>
+    <body>
+        #parse("blocks/nav.vm")
+        <div class="clearfix"></div>
+            <div class="wrapper">
+                <form method="post" action="" class="form2">
+                    <div class="formtitle">Search filter</div>
+                    <div class="input">
+                        <div class="inputtext">Start date </div>
+                        <div class="inputcontent">
+
+                            <input type="text" name="start" value="$startDate" id="filterStart"  class="datePicker" />
+
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <div class="inputtext">End date </div>
+                        <div class="inputcontent">
+
+                            <input type="text" name="end" value="$endDate"  id="filterEnd" class="datePicker" />
+
+                        </div>
+                    </div>
+
+                    <div class="input">
+                        <div class="inputtext">Category </div>
+                        <div class="inputcontent">
+                            <select class="select" name="category_id" id="category">
+                                #if($categories.size() > 0))
+                                    #foreach($category in $categories)
+                                        <option value="$category.getId()">$category.getTitle()</option>
+                                    #end
+                                #end
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+
+                        <input class="orangebutton" type="submit" value="Search" />
+
+                        <input class="greybutton" type="reset" value="Reset" />
+
+                    </div>
+                </form>
+                      <div id="conference">
+                        #if ($conferenceList)
+                            #parse("conference/items.vm")
+                        #end
+                      </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="/resources/js/list.js"></script>
+    </body>
+</html>
