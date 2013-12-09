@@ -194,7 +194,7 @@ public class ConferenceController {
         part.setConference_id(conference_id);
         part.setParticipant_id(getLogedUserId());
         participantsService.saveParticipant(part);
-        return "conference/list";
+        return "redirect:list";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
